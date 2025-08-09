@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biuro rachunkowe online – responsywny szablon HTML/CSS/JS.">
+  <title>Biuro Rachunkowe Online – Szablon</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <noscript>
+    Włącz JavaScript, aby w pełni korzystać z menu mobilnego i formularza.
+  </noscript>
+
+  <header class="topbar">
+    <div class="container">
+      <p>Obsługa 100% online • PL / EN / FR</p>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Główna nawigacja">
+    <div class="container nav__inner">
+      <a class="brand" href="#">
+        <img src="assets/logo.svg" alt="Logo biura rachunkowego">
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Pokaż/ukryj menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="nav-menu" class="nav__menu">
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#jak-dzialamy">Jak działamy</a></li>
+        <li><a href="#cennik">Cennik</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontakt" class="btn btn--sm">Umów konsultację</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero" role="banner" aria-label="Sekcja powitalna">
+    <div class="container">
+      <h1>Biuro rachunkowe online</h1>
+      <p>Nowoczesna księgowość zdalna – prosto, wygodnie i bez papierów.</p>
+      <div class="hero__cta">
+        <a href="#kontakt" class="btn btn--lg">Skontaktuj się</a>
+        <a href="#cennik" class="btn btn--ghost btn--lg">Zobacz cennik</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="section" id="uslugi">
+      <div class="container">
+        <h2>Usługi</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>JDG / KPiR / Ryczałt</h3>
+            <p>Rozliczenia VAT / PIT / ZUS, JPK_V7, wsparcie w kontroli.</p>
+          </article>
+          <article class="card">
+            <h3>Spółki z o.o.</h3>
+            <p>Pełna księgowość, sprawozdania finansowe, kadry i płace.</p>
+          </article>
+          <article class="card">
+            <h3>Doradztwo</h3>
+            <p>Wybór formy opodatkowania, optymalizacje, interpretacje.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jak-dzialamy">
+      <div class="container">
+        <h2>Jak działamy</h2>
+        <ol class="steps">
+          <li><span>1</span> Krótka rozmowa</li>
+          <li><span>2</span> Umowa online</li>
+          <li><span>3</span> Przekazanie dokumentów</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="cennik">
+      <div class="container">
+        <h2>Cennik</h2>
+        <div class="price-grid">
+          <article class="price-card">
+            <h3>Start</h3>
+            <p class="price">od 199 zł / mies.</p>
+            <button class="btn btn--block" onclick="scrollToContact()">Zapytaj</button>
+          </article>
+          <article class="price-card price-card--featured">
+            <h3>Biznes</h3>
+            <p class="price">od 499 zł / mies.</p>
+            <button class="btn btn--block" onclick="scrollToContact()">Zapytaj</button>
+          </article>
+          <article class="price-card">
+            <h3>Premium</h3>
+            <p class="price">indywidualnie</p>
+            <button class="btn btn--block" onclick="scrollToContact()">Zapytaj</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <div class="accordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">Czy obsługujecie całą Polskę?</button>
+            <div class="accordion__panel"><p>Tak, działamy w 100% online.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">Jak przekazuję dokumenty?</button>
+            <div class="accordion__panel"><p>Przez bezpieczny panel klienta lub e-mail.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <form id="contact-form" class="contact__form" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label for="name">Imię i nazwisko</label>
+              <input id="name" name="name" type="text" placeholder="Jan Kowalski" required>
+              <small class="error" data-for="name"></small>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="jan@example.com" required>
+              <small class="error" data-for="email"></small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="message" rows="6" placeholder="W czym możemy pomóc?" required></textarea>
+            <small class="error" data-for="message"></small>
+          </div>
+          <div class="consent">
+            <label><input id="consent" type="checkbox" required> Wyrażam zgodę na kontakt.</label>
+            <small class="error" data-for="consent"></small>
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Wyślij</button>
+            <p id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/logo.svg" alt="">
+        <p>Biuro rachunkowe online – prostota i bezpieczeństwo.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Stopka">
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="footer__meta">
+        <p>&copy; 2025 Twoja Księgowość</p>
+        <a href="#">Polityka prywatności</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

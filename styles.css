@@ -1,0 +1,109 @@
+/* Podstawy */
+:root{
+  --bg:#f7f9fc;
+  --text:#1f2a37;
+  --muted:#556276;
+  --brand:#0b4aa1;
+  --brand-2:#0a2b5e;
+  --accent:#ffcc00;
+  --card:#fff;
+  --border:#e5e9f2;
+  --shadow: 0 6px 24px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+.container{max-width:1120px;margin:0 auto;padding:0 16px}
+
+/* Topbar */
+.topbar{background:var(--brand-2);color:#dfe8f7}
+.topbar .container{padding:.5rem 0}
+
+/* Nav */
+.nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:100}
+.nav__inner{display:flex;align-items:center;gap:16px;padding:.75rem 0}
+.brand img{height:28px}
+.nav__menu{list-style:none;margin:0 0 0 auto;padding:0;display:flex;gap:16px;align-items:center}
+.nav__menu a{text-decoration:none;color:var(--text);font-weight:600}
+.nav__toggle{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;position:relative}
+.nav__toggle span{position:absolute;left:8px;right:8px;height:2px;background:var(--text);transition:.2s}
+.nav__toggle span:nth-child(1){top:12px}
+.nav__toggle span:nth-child(2){top:19px}
+.nav__toggle span:nth-child(3){top:26px}
+.nav__toggle[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg);top:19px}
+.nav__toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav__toggle[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg);top:19px}
+
+/* Hero */
+.hero{
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color:#fff;
+  padding:4rem 0 3rem;
+  text-align:left;
+}
+.hero h1{font-size:clamp(2rem,3.4vw,3rem);margin:0 0 .5rem}
+.hero p{margin:0 0 1rem;max-width:56ch}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Sekcje */
+.section{padding:3rem 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow)}
+.card h3{margin-top:.25rem}
+
+/* Kroki */
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.steps li{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+.steps li span{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700}
+
+/* Cennik */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow)}
+.price-card--featured{border-width:2px;border-color:var(--brand)}
+.price{font-weight:700}
+
+/* FAQ */
+.accordion__item{background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;box-shadow:var(--shadow)}
+.accordion__trigger{width:100%;text-align:left;background:transparent;border:0;padding:1rem 1.25rem;font-size:1rem;cursor:pointer}
+.accordion__panel{display:none;padding:0 1.25rem 1rem;color:var(--muted)}
+.accordion__item[open] .accordion__panel{display:block}
+
+/* Formularz */
+.contact__form{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field label{display:block;font-weight:600;margin-bottom:.25rem}
+.field input,.field textarea{width:100%;padding:.65rem .75rem;border:1px solid var(--border);border-radius:8px;font-size:1rem}
+.field input:focus,.field textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+.error{color:#b00020;min-height:1em;display:block}
+.actions{display:flex;gap:12px;align-items:center;margin-top:1rem}
+
+/* Footer */
+.footer{background:#0a274e;color:#c9d7ef;padding:2rem 0;margin-top:2rem}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:start}
+.footer__logo{height:28px;margin-bottom:.5rem}
+.footer a{color:#c9d7ef;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* Przyciski */
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+.btn--ghost{background:transparent;border:2px solid #fff;color:#fff}
+.btn--lg{padding:1rem 1.25rem}
+.btn--sm{padding:.5rem .75rem}
+.btn--block{display:block;width:100%;text-align:center}
+
+/* Responsywność */
+@media (max-width: 960px){
+  .cards,.steps,.price-grid,.footer__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 640px){
+  .nav__toggle{display:block}
+  .nav__menu{position:absolute;inset:64px 0 auto 0;background:#fff;border-bottom:1px solid var(--border);flex-direction:column;gap:0;display:none}
+  .nav__menu a{padding:12px 16px;display:block}
+  .cards,.steps,.price-grid,.grid,.footer__grid{grid-template-columns:1fr}
+  .hero{padding:3rem 0 2rem;text-align:left}
+}
